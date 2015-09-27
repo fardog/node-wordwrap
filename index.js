@@ -18,6 +18,7 @@ var wordwrap = module.exports = function (start, stop, params) {
     
     if (!params) params = {};
     var mode = params.mode || 'soft';
+    var len = params.lengthFn || _len;
     var re = mode === 'hard' ? /\b/ : /(\S+\s+)/;
     
     return function (text) {
@@ -25,7 +26,7 @@ var wordwrap = module.exports = function (start, stop, params) {
             .split(re)
             .reduce(function (acc, x) {
                 if (mode === 'hard') {
-                    for (var i = 0; i < x.length; i += stop - start) {
+                    for (var i = 0; i < len(x); i += stop - start) {
                         acc.push(x.slice(i, i + stop - start));
                     }
                 }
@@ -40,7 +41,7 @@ var wordwrap = module.exports = function (start, stop, params) {
             var chunk = rawChunk.replace(/\t/g, '    ');
             
             var i = lines.length - 1;
-            if (lines[i].length + chunk.length > stop) {
+            if (len(lines[i]) + len(chunk) > stop) {
                 lines[i] = lines[i].replace(/\s+$/, '');
                 
                 chunk.split(/\n/).forEach(function (c) {
@@ -74,3 +75,7 @@ wordwrap.soft = wordwrap;
 wordwrap.hard = function (start, stop) {
     return wordwrap(start, stop, { mode : 'hard' });
 };
+
+function _len(x) {
+  return x.length;
+}

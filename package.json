@@ -20,9 +20,10 @@
     "test": "test"
   },
   "scripts": {
-    "test": "expresso"
+    "test": "tape test/**/*.js"
   },
   "devDependencies": {
+    "strip-ansi": "^3.0.0",
     "tape": "^4.0.0"
   },
   "license": "MIT",
