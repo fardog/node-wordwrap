@@ -108,6 +108,6 @@ maintained by [Nathan Wittstock][fardog].
 [buildstatus]: https://travis-ci.org/fardog/node-wordwrap
 [npminstall]: https://www.npmjs.org/package/node-wordwrap
 [jsstandard]: https://github.com/feross/standard
-[buildstatusimg]: http://img.shields.io/travis/fardog/node-wordwrap/master.svg?style=flat-square
+[buildstatusimg]: http://img.shields.io/travis/fardog/node-wordwrap/fardog-fork.svg?style=flat-square
 [npminstallimg]: http://img.shields.io/npm/dm/node-wordwrap.svg?style=flat-square
 [jsstandardimg]: https://img.shields.io/badge/code%20style-standard-brightgreen.svg?style=flat-square
